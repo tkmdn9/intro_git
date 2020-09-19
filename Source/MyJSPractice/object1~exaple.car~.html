@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            var car = {
+                color: "white",
+                speed: 60,
+                fuel: 500,
+                accelerate:  function() {
+                    this.speed += 10 ;
+                },
+                decelerate:  function() {
+                    this.speed -= 10 ;
+                },
+                drive:  function(km) {
+                    this.fuel -= km / 20;
+                }
+            }
+            function fast(){
+                car.accelerate();
+            }
+            function lost(){
+                car.decelerate();
+            }
+            function drive(){
+                var km = document.getElementById("distance").value;
+                car.drive(km);
+            }
+            function check() {
+                document.getElementById("sp").textContent = car.speed;
+                document.getElementById("fu").textContent = car.fuel;
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="fast()">加速</button>
+        <button onclick="lost()">減速</button><br />
+        距離  0<input type="range" id="distance"/>100<br />
+        <button onclick="check()">車の情報</button>
+        <button onclick="drive()">drive</button>
+        <p>車の速さは<span id="sp" ></span>kmです</p>
+        <p>車の燃料は<span id="fu" ></span>lです</p>
+    </body>
+ </html>
