@@ -20,3 +20,6 @@ gitにリモートリポジトリとブランチを設定
 12git branch
 12git checkout master
 戻ったのをなかったことにする
+
+feature branchでの変更
+feature branchでの変更2
