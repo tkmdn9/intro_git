@@ -1,4 +1,7 @@
 intro_git
+1git config --global user.name "github user name"
+1git config --global user.email sample@example.com
+Gitの初期設定
 2基本的なワークフローを学びます。
 3git add
 4git commit
@@ -12,3 +15,8 @@ intro_git
 gitにリモートリポジトリとブランチを設定
 10git push origin master
 登録したリモートリポジトリに（オリジン）のマスター（ブランチ）にプッシュ
+11git checkout HEAD^
+1つ前の状態に戻る
+12git branch
+12git checkout master
+戻ったのをなかったことにする
