@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            var pen = {
+                color: "red",
+                length: 5,
+                draw: function (d) {
+                    this.length -= 0.01*d ;
+                }
+            }
+            function stroke(){
+                pen.draw(5);
+                document.getElementById("length").textContent = pen.length;
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="stroke()">書く</button>
+        <p>鉛筆の長さは<span id="length"></span>cm</p>
+    </body>
+ </html>
