@@ -1,2 +1,4 @@
 intro_git
 2基本的なワークフローを学びます。
+3git add
+4git commit
