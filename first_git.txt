@@ -4,3 +4,4 @@ intro_git
 4git commit
 5git rm
 6git status
+7git diff
