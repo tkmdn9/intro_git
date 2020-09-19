@@ -5,3 +5,10 @@ intro_git
 5git rm
 6git status
 7git diff
+ローカルとステージングエリアとの差分
+8git diff HEAD
+ステージングエリアとリモートリポジトリとの差分
+9git remote add origin https://github.com/tkmdn9/intro_git
+gitにリモートリポジトリとブランチを設定
+10git push origin master
+登録したリモートリポジトリに（オリジン）のマスター（ブランチ）にプッシュ
