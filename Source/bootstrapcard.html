@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Blog Home - Start Bootstrap Template</title>
+  <title>公募一覧</title>
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="#">キャリアSNS</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -56,29 +56,68 @@
       <!-- Blog Entries Column -->
       <div class="col-md-8">
 
-        <h1 class="my-4">Page Heading
-          <small>Secondary Text</small>
+        <h1 class="my-4">公募一覧
+          <small>~各部公募紹介~</small>
         </h1>
 
-        <div class="container">
-            <article class="projects-index-single" >
-                <img class="card-img-top" src="img/マチュピチュ.jpg" alt="Card image cap">
+        <!--リスト変数を取得-->
+        <div th:each="deptList:${deptList}">
+          <div class="container">
+            <div class="card mb-4">
+              <article class="projects-index-single" >
+                <img class="card-img-top" src=[[${deptList.img}]] alt="Card image cap">
               <div class="card-body">
-                <h2 class="card-title">Post Title</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                <h2 class="card-title" th:text="${deptList.title}">募集タイトル</h2>
+                <h6 class="card-subtile text-secondary" th:text="${deptList.departmentName}">部署名</h6>
+                <p class="card-text" th:text="${deptList.recruitment}">募集内容</p>
+                <p class="card-text" th:text="${deptList.recruitmentDetail}">募集内容詳細</p>
+                <p class="card-text" th:text="${deptList.recruitment}">募集人材</p>
+                <p class="card-text" th:text="${deptList.skills}">必要スキル</p>
+                <p class="card-text" th:text="${deptList.contact}">連絡先</p>
+                <a href="#" class="btn btn-primary">募集内容詳細画面 &rarr;</a>
               </div>
                 <div class="card-footer text-muted">
                     Posted on January 1, 2020 by
-                    <a href="#">Start Bootstrap</a>
+                    <a href="#">投稿者へ</a>
                   </div>
-            </article>
+            　</article>
+            </div>
+       　 </div>
         </div>
+             
 
+        <!--テーブルに求人情報を表示-->
+        <table>
+          <tr>
+           <th>求人番号</th>
+           <th>募集タイトル</th>
+           <th>部署</th>
+           <th>求人内容</th>
+           <th>必要スキル</th>
+           <th>職歴</th>
+           <th>スキル</th>
+           <th>趣味</th>
+          
+          </tr>
+          <tbody>
+          <tr th:each="joblist:${joblist}">
+           <td>[[${joblist.id}]]</td>
+           <td>[[${joblist.name}]]</td>
+           <td>[[${joblist.appealingPoint}]]</td>
+           <td>[[${joblist.duties}]]</td>
+           <td>[[${joblist.challenge}]]</td>
+           <td>[[${joblist.workHistory}]]</td>
+           <td>[[${joblist.skill}]]</td>
+           <td>[[${joblist.hobby}]]</td>
+           <td>
+            <a th:href="@{'/profile/detail/'+${profile.id}}">詳細</a>
+           </td>
+          </tbody>
+          </table>
 
         <!-- Blog Post -->
         <div class="card mb-4">
-          <img class="card-img-top" src="img/モニュメントバレー.jpg" alt="Card image cap">
+          <img class="card-img-top" src="img/モニュメントバレー.jpg" alt="Card image cap">
           <div class="card-body">
             <h2 class="card-title">Post Title</h2>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
@@ -92,7 +131,7 @@
 
         <!-- Blog Post -->
         <div class="card mb-4">
-          <img class="card-img-top" src="img/カナディアンロッキー.jpg" alt="Card image cap">
+          <img class="card-img-top" src="img/イエローナイフ.webp" alt="Card image cap">
           <div class="card-body">
             <h2 class="card-title">Post Title</h2>
             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
